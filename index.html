@@ -8,7 +8,7 @@
     /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
     </style>
   </head>
-  <body>
+  <body onresize="update();" onload="update();">
     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="1920px" width="1080px"></canvas>
     <script type='text/javascript'>
   var Module = {
@@ -20,6 +20,11 @@
     memUrl: "Release/20161212_1838_jarjarlhalla.mem",
     
   };
+  function update() {
+    var cvs = document.getElementById("canvas");
+    cvs.height = window.innerHeight*0.8;
+    cvs.width = cvs.height/16*9;
+  }
 </script>
 <script src="Release/UnityLoader.js"></script>
 
